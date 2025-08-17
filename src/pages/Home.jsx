@@ -34,10 +34,10 @@ export default function Home() {
 
   const items = [
     { icon: cal, title: "GreenCalendar", desc: "sini lihat kalendar, ada hari bersih apa aja ya?" },
-    { icon: rrr, title: "Inovate!", desc: "udah tau 3R belum? inovasi apa aja ya? sini merapat!" },
-    { icon: bin, title: "TrashBin", desc: "buang sampah ada etikanya loh! TPA akhirnya dimana ya?" },
+    { icon: rrr, title: "Inovate!", desc: "aaaaaaaaaaaainovasi apa aja ya? sini merapat!" },
+    { icon: bin, title: "TrashBin", desc: "aaaaaaaaaaaaaaaaaabbbbbbbbbbbbbccccccc" },
     { icon: cas, title: "VirtualTour", desc: "yuk bersaing antar sekolah secara sehat! lihat sekolah lain secara virtual disini!" },
-    { icon: mon, title: "Waste-Bank", desc: "punya pertanyaan, kritik, saran atau ada keperluan? isi survey dan hubungi kami!" },
+    { icon: mon, title: "Waste-Bank", desc: "aaaaaaaaaabbbbbbbbbbbbbbbbbbbccccccccccccccc" },
   ];
 
   const dailyStatus = [true, false, false, true, false, true, true];
@@ -63,13 +63,13 @@ export default function Home() {
 
       <Link to="/login-school">
         <button className="bg-white border-2 border-lime-500 w-20 h-12 rounded-3xl text-l font-semibold hover:scale-110">
-          Login
+          Masuk
         </button>
       </Link>
 
       <Link to="/register">
         <button className="bg-lime-300 w-24 h-12 rounded-3xl text-l font-bold hover:scale-110">
-          Register
+          Daftar
         </button>
       </Link>
       

@@ -35,7 +35,12 @@ const handlePhotoChange = (e) => {
     <div className="min-h-screen bg-blue-100 py-8">
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6">
 
-        <h1 className="text-2xl font-bold mb-2">🎓 Dashboard Siswa</h1>
+         <div className="flex items-center gap-4">
+          <h1 className="text-3xl font-bold">🏫 Dashboard</h1>
+        <HoverBacklight count={8} distance={25}>
+          <h1 className="text-3xl font-bold text-sky-500">Siswa</h1>
+        </HoverBacklight>
+        </div>
         <p className="text-gray-600 mb-6">
           Halo, {user?.name || "Siswa"}, siap kontribusi?
         </p>

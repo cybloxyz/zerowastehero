@@ -1,6 +1,7 @@
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import HoverBacklight from '../components/burst.jsx';
 
 export default function DashboardSekolah() {
   const { user, logout } = useAuth();
@@ -39,7 +40,13 @@ const handleLogoChange = (e) => {
     <div className="min-h-screen bg-green-100 py-8">
       <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-6">
 
-        <h1 className="text-2xl font-bold mb-2">🏫 Dashboard</h1><h1 className="text-2xl font-bold mb-2">Sekolah</h1>
+       <div className="flex items-center gap-4">
+  <h1 className="text-3xl font-bold">🏫 Dashboard</h1>
+<HoverBacklight count={8} distance={25}>
+  <h1 className="text-3xl font-bold text-lime-500">Sekolah</h1>
+</HoverBacklight>
+</div>
+
         <p className="text-gray-600 mb-6">
           Selamat datang, {user?.name || "Sekolah"}!
         </p>
@@ -110,7 +117,7 @@ const handleLogoChange = (e) => {
           <h2 className="font-semibold mb-3">👨‍🎓 Daftar Siswa</h2>
           <ul className="space-y-2">
             {siswa.map((s) => (
-              <li key={s.id} className="bg-white p-3 rounded-lg shadow flex justify-between">
+              <li key={s.id} className="bg-white p-3 rounded-lg shadow flex justify-between hover:scale-105">
                 <span>{s.name}</span>
                 <span>{s.badge}</span>
               </li>
