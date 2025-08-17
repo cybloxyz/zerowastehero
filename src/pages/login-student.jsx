@@ -1,0 +1,60 @@
+import HoverBacklight from "../components/burst.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+export default function LoginStudent() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // validasi simple (sementara)
+    if (email && password) {
+      login("student", email); // role = student
+      navigate("/dashboard-student");
+    } else {
+      alert("Email & password siswa wajib diisi!");
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-lime-200">
+      <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center">Login Siswa</h2>
+
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Email Siswa"
+            className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-lime-400 outline-none"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-lime-400 outline-none"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <div className="mt-8 text-center">
+            <HoverBacklight count={8} distance={30}>
+              <button
+                type="submit"
+                className="w-20 bg-lime-500 text-white py-2 rounded-lg font-semibold hover:bg-lime-600 transition"
+              >
+                Login
+              </button>
+            </HoverBacklight>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e94, 2025-05-08)"
+   sodipodi:docname="searchbar.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.78484147"
+     inkscape:cx="300.0606"
+     inkscape:cy="706.51211"
+     inkscape:window-width="1848"
+     inkscape:window-height="1131"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Lapis 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2"
+       transform="matrix(2.2925153,-2.0468671,2.0340858,2.2782001,-301.21061,52.687384)">
+      <ellipse
+         style="fill:#44aa00;stroke-width:0.157793"
+         id="path1"
+         cx="79.203285"
+         cy="97.580894"
+         rx="24.628721"
+         ry="24.729244" />
+      <ellipse
+         style="fill:#ffffff;stroke-width:0.126489"
+         id="ellipse1"
+         cx="79.128998"
+         cy="97.799179"
+         rx="19.74258"
+         ry="19.823162" />
+      <rect
+         style="fill:#44aa00;stroke-width:0.248015"
+         id="rect2"
+         width="7.0794535"
+         height="39.06813"
+         x="76.525551"
+         y="117.99093"
+         rx="1.1517601"
+         ry="1.1589974" />
+    </g>
+  </g>
+</svg>

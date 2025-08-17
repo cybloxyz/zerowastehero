@@ -1,0 +1,23 @@
+<HoverComment comment="Klik untuk aksi spesial!">
+  <button className="bg-lime-500 text-white px-4 py-2 rounded">Klik Aku</button>
+</HoverComment>
+
+<HoverComment comment="Ini ikon keren!">
+  <img src={fire} alt="fire icon" className="w-10 h-10" />
+</HoverComment>
+
+<HoverComment comment="Model 3D ini bisa diputar!">
+  <div className="w-40 h-40">
+    <Canvas className="w-full h-full">
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 10]} />
+      <Model url="/models/ImageToStl.com_Animation_Agree_Gesture_withSkin.glb" />
+      <OrbitControls enableZoom={false} />
+    </Canvas>
+  </div>
+</HoverComment>
+
+if (file.size > 2 * 1024 * 1024) { // > 2MB
+  alert("Ukuran file maksimal 2MB!");
+  return;
+}
