@@ -6,7 +6,7 @@ export default function ProtectedRoute({ children, role }) {
 
   // kalau belum login
   if (!user) {
-    return <Navigate to="/Home" />; // default ke login siswa
+    return <Navigate to="/" />; // default ke login siswa
   }
 
   // kalau role tidak sesuai
