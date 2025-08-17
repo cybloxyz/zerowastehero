@@ -1,7 +1,7 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import HoverBacklight from "../components/burst.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 export default function LoginSchool() {
   const { login } = useAuth();
@@ -9,16 +9,16 @@ export default function LoginSchool() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // state untuk pesan error
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // validasi simple, nanti bisa sambung ke backend
     if (email && password) {
       login("school", email); // role = school
       navigate("/dashboard-school");
     } else {
-      alert("Email & password wajib diisi!");
+      setError("Email & password wajib diisi!");
     }
   };
 
@@ -27,6 +27,10 @@ export default function LoginSchool() {
       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6">Login Sekolah</h2>
 
+        {error && (
+          <p className="text-red-600 text-center mb-4 font-semibold">{error}</p>
+        )}
+
         <form className="space-y-4" onSubmit={handleSubmit}>
           <input
             type="email"
@@ -34,6 +38,7 @@ export default function LoginSchool() {
             className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-lime-400 outline-none"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <input
             type="password"
@@ -41,6 +46,7 @@ export default function LoginSchool() {
             className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-lime-400 outline-none"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
 
           <div className="mt-8 text-center">
@@ -56,14 +62,13 @@ export default function LoginSchool() {
         </form>
 
         <p className="text-sm text-center mt-4">
-          Belum punya akun?
-          <a
-            href="/register"
+          Belum punya akun?{" "}
+          <button
+            onClick={() => navigate("/register")}
             className="text-lime-600 font-semibold hover:underline"
           >
-            {" "}
-            Register
-          </a>
+            Daftar
+          </button>
         </p>
       </div>
     </div>

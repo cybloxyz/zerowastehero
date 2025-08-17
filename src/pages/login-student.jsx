@@ -1,7 +1,7 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import HoverBacklight from "../components/burst.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 export default function LoginStudent() {
   const { login } = useAuth();
@@ -9,16 +9,16 @@ export default function LoginStudent() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // state untuk pesan error
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // validasi simple (sementara)
     if (email && password) {
       login("student", email); // role = student
       navigate("/dashboard-student");
     } else {
-      alert("Email & password siswa wajib diisi!");
+      setError("Email & password siswa wajib diisi!");
     }
   };
 
@@ -27,6 +27,10 @@ export default function LoginStudent() {
       <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Login Siswa</h2>
 
+        {error && (
+          <p className="text-red-600 text-center mb-4 font-semibold">{error}</p>
+        )}
+
         <form className="space-y-4" onSubmit={handleSubmit}>
           <input
             type="email"
@@ -34,6 +38,7 @@ export default function LoginStudent() {
             className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-lime-400 outline-none"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <input
             type="password"
@@ -41,6 +46,7 @@ export default function LoginStudent() {
             className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-lime-400 outline-none"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
 
           <div className="mt-8 text-center">

@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import HoverBacklight from "../components/burst.jsx";
 
 export default function Register() {
   const [success, setSuccess] = useState(false); // state untuk pesan sukses
+  const navigate = useNavigate(); // untuk navigasi ke halaman login
 
   const handleSubmit = (e) => {
     e.preventDefault(); // mencegah reload halaman
@@ -23,15 +25,27 @@ export default function Register() {
     e.target.reset();
   };
 
+  const handleLoginClick = () => {
+    navigate("/login-school"); // navigasi ke halaman login
+  };
+
   return (
     <div className="min-h-screen bg-lime-200 flex items-center justify-center">
       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6">Daftar Sekolah</h2>
-        
+
         {success ? (
-          <p className="text-green-600 text-center font-semibold">
-            Berhasil daftar, silahkan login
-          </p>
+          <div className="text-center space-y-4">
+            <p className="text-green-600 font-semibold">
+              Berhasil daftar, silahkan login
+            </p>
+            <button
+              onClick={handleLoginClick}
+              className="mt-2 bg-lime-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-lime-600 transition"
+            >
+              Login Sekarang
+            </button>
+          </div>
         ) : (
           <form className="space-y-4" onSubmit={handleSubmit}>
             <input 
@@ -69,10 +83,17 @@ export default function Register() {
           </form>
         )}
 
-        <p className="text-sm text-center mt-4">
-          Sudah punya akun? 
-          <a href="/login-school" className="text-lime-600 font-semibold hover:underline"> Login</a>
-        </p>
+        {!success && (
+          <p className="text-sm text-center mt-4">
+            Sudah punya akun?{" "}
+            <button
+              onClick={handleLoginClick}
+              className="text-lime-600 font-semibold hover:underline"
+            >
+              Masuk
+            </button>
+          </p>
+        )}
       </div>
     </div>
   );
