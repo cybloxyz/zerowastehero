@@ -2,15 +2,16 @@ import fire from "../assets/fire.svg";
 
 export default function Top({ rank, name, onClick }) {
   return (
+  <div className="flex flex-warp relative items-center justify-between w-full">
     <button
       onClick={onClick}
-      className="bg-white rounded-xl mt-8 h-40 w-full flex items-center justify-between px-6 shadow hover:scale-110 transition-transform focus:outline-none"
+      className="bg-white rounded-xl mt-8 h-full w-full flex items-center justify-between px-6 shadow hover:scale-110 transition-transform focus:outline-none"
     >
       {/* Nomor Ranking di kiri */}
-      <span className="text-8xl font-bold">#{rank}</span>
+      <span className="sm:text-8xl text-5xl font-bold">#{rank}</span>
 
       {/* Nama Sekolah di tengah */}
-      <span className="text-5xl font-semibold text-center flex-1">
+      <span className="sm:text-5xl text-3xl font-semibold text-center flex-1">
         {name}
       </span>
 
@@ -23,5 +24,6 @@ export default function Top({ rank, name, onClick }) {
         />
       )}
     </button>
+  </div>
   );
 }

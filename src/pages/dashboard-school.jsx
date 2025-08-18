@@ -14,9 +14,9 @@ export default function DashboardSekolah() {
 
   // daftar siswa (sementara dummy data)
   const [siswa] = useState([
-    { id: 1, name: "Ani", badge: "🌱 Level 1" },
-    { id: 2, name: "Budi", badge: "♻️ Daur Ulang" },
-    { id: 3, name: "Cici", badge: "💡 Kreatifitas" },
+    { id: 1, name: "Ani", badge: "🌱 Level 1 - Kesadaran" },
+    { id: 2, name: "Budi", badge: "♻️ Level 2 - 3 Prinsip" },
+    { id: 3, name: "Cici", badge: "💡 level 3 - Inovasi" },
   ]);
 
   const handleLogout = () => {
@@ -38,7 +38,7 @@ const handleLogoChange = (e) => {
 
   return (
     <div className="min-h-screen bg-green-100 py-8">
-      <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-6">
+      <div className="max-w-5xl sm:mx-auto mx-4 bg-white rounded-xl shadow-lg p-6">
 
        <div className="flex items-center gap-4">
   <h1 className="text-3xl font-bold">🏫 Dashboard</h1>
@@ -54,11 +54,11 @@ const handleLogoChange = (e) => {
         {/* Profil Sekolah */}
         <div className="flex items-center gap-6 mb-6">
           <label className="relative cursor-pointer">
-            <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden flex items-center justify-center">
+            <div className="sm:w-32 sm:h-32 w-20 h-20 bg-gray-300 rounded-full overflow-hidden flex items-center justify-center">
               {logo ? (
                 <img src={logo} alt="logo sekolah" className="w-full h-full object-cover" />
               ) : (
-                <span className="text-sm text-gray-500">Upload Logo</span>
+                <span className="text-xs sm:text-sm text-gray-500">Upload Logo</span>
               )}
             </div>
             {user?.role === "school" && (
@@ -66,7 +66,7 @@ const handleLogoChange = (e) => {
             )}
           </label>
           <div>
-            <h2 className="text-xl font-semibold">{user?.name || "Nama Sekolah"}</h2>
+            <h2 className="sm:text-xl text-lg font-semibold">{user?.name || "Nama Sekolah"}</h2>
 
             {editing ? (
               <>
@@ -74,18 +74,18 @@ const handleLogoChange = (e) => {
                   type="text"
                   value={alamat}
                   onChange={(e) => setAlamat(e.target.value)}
-                  className="mt-2 p-2 border rounded-lg w-full focus:ring-2 focus:ring-lime-400 outline-none"
+                  className="text-xs sm:text-sm mt-2 p-2 border rounded-lg w-full focus:ring-2 focus:ring-lime-400 outline-none"
                 />
                 <textarea
                   value={deskripsi}
                   onChange={(e) => setDeskripsi(e.target.value)}
-                  className="mt-2 p-2 border rounded-xl w-full text-gray-700 focus:ring-2 focus:ring-lime-400 outline-none"
+                  className="text-xs sm:text-sm mt-2 p-2 border rounded-xl w-full text-gray-700 focus:ring-2 focus:ring-lime-400 outline-none"
                 />
               </>
             ) : (
               <>
-                <p className="mt-2 text-gray-700">{alamat}</p>
-                <p className="mt-1 text-gray-600">{deskripsi}</p>
+                <p className="text-xs sm:text-sm mt-2 text-gray-700">{alamat}</p>
+                <p className="text-xs sm:text-sm mt-1 text-gray-600">{deskripsi}</p>
               </>
             )}
 
@@ -129,7 +129,7 @@ const handleLogoChange = (e) => {
         <div className="text-right">
           <button
             onClick={handleLogout}
-            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+            className="sm:px-4 sm:py-2 px-2 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600"
           >
             Logout
           </button>

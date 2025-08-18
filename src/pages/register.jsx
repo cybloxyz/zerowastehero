@@ -3,78 +3,73 @@ import { useNavigate } from "react-router-dom";
 import HoverBacklight from "../components/burst.jsx";
 
 export default function Register() {
-  const [success, setSuccess] = useState(false); // state untuk pesan sukses
-  const navigate = useNavigate(); // untuk navigasi ke halaman login
+  const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // mencegah reload halaman
+    e.preventDefault();
 
-    // ambil data input
     const formData = new FormData(e.target);
     const namaSekolah = formData.get("namaSekolah");
     const email = formData.get("email");
     const password = formData.get("password");
 
-    // sementara hanya log data
     console.log({ namaSekolah, email, password });
 
-    // set success ke true untuk menampilkan pesan
     setSuccess(true);
-
-    // opsional: reset form
     e.target.reset();
   };
 
   const handleLoginClick = () => {
-    navigate("/login-school"); // navigasi ke halaman login
+    navigate("/login-school");
   };
 
   return (
-    <div className="min-h-screen bg-lime-200 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center mb-6">Daftar Sekolah</h2>
+    <div className="min-h-screen bg-lime-200 flex items-center justify-center px-4 py-6">
+      <div className="bg-white rounded-3xl shadow-xl w-full max-w-md p-6 sm:p-10 flex flex-col">
+        <h2 className="text-3xl font-bold text-center mb-8">Daftar Sekolah</h2>
 
         {success ? (
-          <div className="text-center space-y-4">
-            <p className="text-green-600 font-semibold">
+          <div className="text-center space-y-6">
+            <p className="text-green-600 font-semibold text-lg">
               Berhasil daftar, silahkan login
             </p>
             <button
               onClick={handleLoginClick}
-              className="mt-2 bg-lime-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-lime-600 transition"
+              className="w-full bg-lime-500 text-white py-3 rounded-xl font-semibold text-lg hover:bg-lime-600 transition"
             >
               Login Sekarang
             </button>
           </div>
         ) : (
-          <form className="space-y-4" onSubmit={handleSubmit}>
-            <input 
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <input
               name="namaSekolah"
-              type="text" 
-              placeholder="Nama Sekolah" 
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-lime-400 outline-none"
+              type="text"
+              placeholder="Nama Sekolah"
+              className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-lime-400 focus:border-lime-400 outline-none text-lg"
               required
             />
-            <input 
+            <input
               name="email"
-              type="email" 
-              placeholder="Email" 
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-lime-400 outline-none"
+              type="email"
+              placeholder="Email"
+              className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-lime-400 focus:border-lime-400 outline-none text-lg"
               required
             />
-            <input 
+            <input
               name="password"
-              type="password" 
-              placeholder="Password" 
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-lime-400 outline-none"
+              type="password"
+              placeholder="Password"
+              className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-lime-400 focus:border-lime-400 outline-none text-lg"
               required
             />
 
-            <div className="mt-8 text-center">
-              <HoverBacklight count={8} distance={30}>
-                <button 
-                  type="submit" 
-                  className="w-24 bg-lime-500 text-white py-2 rounded-lg font-semibold hover:bg-lime-600 transition"
+            <div className="text-center">
+              <HoverBacklight count={8} distance={25}>
+                <button
+                  type="submit"
+                  className="w-24 sm:w-48 bg-lime-500 text-white py-3 rounded-xl font-semibold text-lg hover:bg-lime-600 transition"
                 >
                   Register
                 </button>
@@ -84,7 +79,7 @@ export default function Register() {
         )}
 
         {!success && (
-          <p className="text-sm text-center mt-4">
+          <p className="text-center mt-6 text-sm sm:text-base">
             Sudah punya akun?{" "}
             <button
               onClick={handleLoginClick}

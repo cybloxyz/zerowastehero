@@ -16,11 +16,11 @@ export default function Leaderboard() {
 const sortedSchools = [...schools].sort((a, b) => b.score - a.score);
 
   return (
-    <div className="bg-lime-200 min-h-screen flex flex-col items-center py-8">
+    <div className="bg-lime-200 min-h-screen flex flex-col items-center sm:py-8 py-14 px-4">
       <HoverBacklight count={8} distance={40}>
-        <span className="text-4xl font-bold mb-4">🏆 Leaderboard Sekolah 🏆</span>
+        <span className="sm:text-5xl text-3xl font-bold mb-4">🏆 Leaderboard Sekolah 🏆</span>
         </HoverBacklight>
-      <h1 className="text xl font-semibold mb-4">
+      <h1 className="text xl font-semibold mb-4 text-center">
         terima kasih sudah ikut berkontribusi dalam menjaga bumi kita!
       </h1>
 
@@ -51,7 +51,7 @@ const sortedSchools = [...schools].sort((a, b) => b.score - a.score);
         ))}
       </div>
       <div className="flex items-center justify-center mt-12 animate-wiggle">
-        <img src={tr} alt="icon" className="w-24 h-24 object-contain"/>
+        <img src={tr} alt="icon" className="sm:w-24 w-14 h-full object-contain"/>
       </div>
     </div>
   );
