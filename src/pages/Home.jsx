@@ -111,10 +111,10 @@ export default function Home() {
           {/* Text */}
           <div className="w-full sm:w-2/3 mt-4 sm:mt-0 sm:pl-4 flex flex-col justify-center">
             <h2 className="text-xl sm:text-2xl font-bold mb-2 text-lime-600">Ayo Zero-Waste Heroes!</h2>
-            <p className="text-base">
+            <p className="text-base text-sm sm:text-base">
               Setiap sampah yang kamu pilah, setiap plastik yang kamu hindari, membuat dunia lebih bersih. Ayo, jadi pahlawan lingkungan sekarang!
             </p>
-            <p className="mt-1 text-base font-semibold text-red-600">
+            <p className="mt-1 sm:text-base text-sm font-semibold text-red-600">
               "Aksi Kecil untuk Perubahan Besar"
             </p>
           </div>

@@ -117,7 +117,7 @@ const handleLogoChange = (e) => {
           <h2 className="font-semibold mb-3">👨‍🎓 Daftar Siswa</h2>
           <ul className="space-y-2">
             {siswa.map((s) => (
-              <li key={s.id} className="bg-white p-3 rounded-lg shadow flex justify-between hover:scale-105">
+              <li key={s.id} className="text-sm sm:text-lg bg-white p-3 rounded-lg shadow flex justify-between hover:scale-105">
                 <span>{s.name}</span>
                 <span>{s.badge}</span>
               </li>
