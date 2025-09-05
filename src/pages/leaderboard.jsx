@@ -16,7 +16,7 @@ export default function Leaderboard() {
 const sortedSchools = [...schools].sort((a, b) => b.score - a.score);
 
   return (
-    <div className="bg-lime-200 min-h-screen flex flex-col items-center sm:py-8 py-14 px-4">
+    <div className="bg-gradient-to-b from-lime-100 to-lime-300 min-h-screen flex flex-col items-center sm:py-8 py-14 px-4">
       <HoverBacklight count={8} distance={40}>
         <span className="sm:text-5xl text-3xl font-bold mb-4">🏆 Leaderboard Sekolah 🏆</span>
         </HoverBacklight>

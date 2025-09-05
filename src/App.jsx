@@ -1,26 +1,36 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import HomeDefault from "./pages/Home";
+import HomeLoggedIn from "./pages/Homel";
 import Leaderboard from "./pages/leaderboard";
 import Register from "./pages/register";
-import Login from "./pages/login-school";        // login sekolah
-import Stud from "./pages/login-student";    // login siswa
+import LoginSchool from "./pages/login-school";
+import LoginStudent from "./pages/login-student";
 import DashboardSchool from "./pages/dashboard-school";
 import DashboardStudent from "./pages/dashboard-student";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+
+// Wrapper supaya route '/' dinamis tergantung login
+function HomeRoute() {
+  const { user } = useAuth();
+  if (!user) return <HomeDefault />;       // belum login
+  return <HomeLoggedIn />;                 // sudah login
+}
 
 function App() {
   return (
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomeRoute />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login-school" element={<Login />} />
-          <Route path="/login-student" element={<Stud />} />
 
-          {/* dashboard sekolah */}
+          {/* login */}
+          <Route path="/login-school" element={<LoginSchool />} />
+          <Route path="/login-student" element={<LoginStudent />} />
+
+          {/* dashboard */}
           <Route
             path="/dashboard-school"
             element={
@@ -29,8 +39,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-
-          {/* dashboard siswa */}
           <Route
             path="/dashboard-student"
             element={
@@ -39,6 +47,9 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          {/* fallback */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </AuthProvider>

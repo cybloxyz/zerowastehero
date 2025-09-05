@@ -52,7 +52,7 @@ export default function Home() {
   const modelScale = windowWidth < 640 ? 1.2 : 2;
 
   return (
-    <div className="bg-lime-200 min-h-screen">
+    <div className="bg-gradient-to-b from-lime-100 to-lime-300 min-h-screen">
       {/* Navbar */}
       <nav className="flex flex-wrap justify-between items-center px-4 sm:px-6 py-4 bg-white shadow">
         <HoverBacklight count={8} distance={40}>
@@ -128,7 +128,7 @@ export default function Home() {
                 className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center 
                 ${status ? 'bg-orange-500' : 'bg-gray-300'}`}
               >
-                <img src={stk} alt="streak icon" className="w-12 h-12 sm:w-14 sm:h-14 hover:scale-110" />
+                <img src={stk} alt="streak icon" className="w-12 h-12 sm:w-14 sm:h-14 hover:scale-125" />
               </div>
               <span className="text-sm sm:text-base mt-2 sm:mt-3 font-medium">{`day ${i + 1}`}</span>
             </div>
@@ -138,10 +138,10 @@ export default function Home() {
         {/* Fitur unggulan */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
           <HoverComment comment="semua dimulai dari mimpi, kamu bisa kontribusi dan upayakan hasil nyata!">
-            <div className="bg-sky-400 rounded-xl p-4 text-white hover:bg-sky-600 transition-colors text-center">Siap Kontribusi?</div>
+            <div className="bg-gradient-to-r from-sky-400 to-sky-500 rounded-xl p-4 text-white hover:scale-105 text-center">Siap Kontribusi?</div>
           </HoverComment>
           <HoverComment comment="mari jadikan dunia lebih baik, dimulai dari sekolah kamu!">
-            <div className="bg-green-400 rounded-xl p-4 text-white hover:bg-green-600 transition-colors text-center">Pantau Sekolahmu!</div>
+            <div className="bg-gradient-to-r from-green-400 to-green-500 rounded-xl p-4 text-white hover:scale-105 text-center">Pantau Sekolahmu!</div>
           </HoverComment>
         </div>
 

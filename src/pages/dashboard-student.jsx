@@ -18,6 +18,10 @@ export default function DashboardSiswa() {
     navigate("/login-student");
   };
 
+const handleBack = () => {
+  navigate("/");
+}
+
 const handlePhotoChange = (e) => {
   const file = e.target.files[0];
   if (file) {
@@ -32,8 +36,8 @@ const handlePhotoChange = (e) => {
 
 
   return (
-    <div className="min-h-screen bg-blue-100 py-8">
-      <div className="max-w-4xl sm:mx-auto mx-4 bg-white rounded-xl shadow-lg p-6">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-blue-300 py-8">
+      <div className="max-w-4xl  sm:mx-auto mx-4 bg-white rounded-xl shadow-lg p-6">
 
          <div className="flex items-center gap-4">
           <h1 className="text-3xl font-bold">🏫 Dashboard</h1>
@@ -45,6 +49,9 @@ const handlePhotoChange = (e) => {
           Halo, {user?.name || "Siswa"}, siap kontribusi?
         </p>
 
+        
+
+        
 
         {/* Foto + Bio */}
         <div className="flex items-center justify-start gap-6 mb-6">
@@ -154,13 +161,27 @@ const handlePhotoChange = (e) => {
 
         <div className="text-right">
           <button
+            onClick={handleBack}
+            className="sm:px-4 sm:py-2 px-2 py-1 bg-sky-500 text-white mx-6 rounded-xl hover:bg-sky-600"
+          >
+            Home
+          </button>
+          <button
+            onClick={handleBack}
+            className="sm:px-4 sm:py-2 px-2 py-1 bg-lime-400 text-white rounded-xl hover:bg-lime-600"
+          >
+            map
+          </button>
+          <button
             onClick={handleLogout}
-            className="sm:px-4 sm:py-2 px-2 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600"
+            className="sm:px-3 sm:py-2 px-2 py-1 bg-red-500 mx-6 text-white rounded-xl hover:bg-red-600"
           >
             Logout
           </button>
         </div>
+        
       </div>
+      
     </div>
   );
 }

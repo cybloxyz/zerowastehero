@@ -24,6 +24,10 @@ export default function DashboardSekolah() {
     navigate("/login-school");
   };
 
+  const handleBack = () => {
+  navigate("/");
+}
+
 const handleLogoChange = (e) => {
   const file = e.target.files[0];
   if (file) {
@@ -37,7 +41,7 @@ const handleLogoChange = (e) => {
 };
 
   return (
-    <div className="min-h-screen bg-green-100 py-8">
+    <div className="min-h-screen bg-gradient-to-b from-lime-100 to-lime-300 py-8">
       <div className="max-w-5xl sm:mx-auto mx-4 bg-white rounded-xl shadow-lg p-6">
 
        <div className="flex items-center gap-4">
@@ -128,8 +132,20 @@ const handleLogoChange = (e) => {
         {/* Tombol Logout */}
         <div className="text-right">
           <button
+            onClick={handleBack}
+            className="sm:px-4 sm:py-2 px-2 py-1 bg-sky-500 text-white mx-6 rounded-xl hover:bg-sky-600"
+          >
+            Home
+          </button>
+          <button
+            onClick={handleBack}
+            className="sm:px-4 sm:py-2 px-2 py-1 bg-lime-400 text-white rounded-xl hover:bg-lime-600"
+          >
+            map
+          </button>
+          <button
             onClick={handleLogout}
-            className="sm:px-4 sm:py-2 px-2 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600"
+            className="sm:px-3 sm:py-2 px-2 py-1 bg-red-500 mx-6 text-white rounded-xl hover:bg-red-600"
           >
             Logout
           </button>
