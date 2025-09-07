@@ -9,6 +9,9 @@ import DashboardSchool from "./pages/dashboard-school";
 import DashboardStudent from "./pages/dashboard-student";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import VirtualTour from "./pages/virtu";
+import Cal from "./pages/cal";
+import Bank from "./pages/wastb";
 
 // Wrapper supaya route '/' dinamis tergantung login
 function HomeRoute() {
@@ -30,6 +33,10 @@ function App() {
           <Route path="/login-school" element={<LoginSchool />} />
           <Route path="/login-student" element={<LoginStudent />} />
 
+          <Route path="/virtu" element={<VirtualTour />} />
+          <Route path="/cal" element={<Cal />} />
+          <Route path="/wastb" element={<Bank />} />
+
           {/* dashboard */}
           <Route
             path="/dashboard-school"
@@ -44,6 +51,7 @@ function App() {
             element={
               <ProtectedRoute role="student">
                 <DashboardStudent />
+             
               </ProtectedRoute>
             }
           />

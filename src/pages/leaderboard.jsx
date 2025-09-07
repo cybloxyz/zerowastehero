@@ -1,7 +1,6 @@
 import cr from "../assets/crown.svg";
 import tr from "../assets/tr.svg";
 import HoverBacklight from "../components/burst";
-import zew from "../assets/zew.png";
 import { Link } from "react-router-dom";
 
 export default function Leaderboard() {

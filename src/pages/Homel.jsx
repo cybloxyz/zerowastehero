@@ -1,5 +1,5 @@
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SearchBar from "../components/searchbar.jsx";
 import Top from "../components/leader.jsx";
@@ -14,6 +14,7 @@ import rrr from "../assets/3r.svg";
 import bin from "../assets/trashbin.svg";
 import cas from "../assets/castle.svg";
 import mon from "../assets/money.svg";
+import { Path } from "three";
 
 
 function Model({ url, scale = 2 }) {
@@ -42,11 +43,11 @@ export default function Home() {
 
   // fitur + status harian
   const items = [
-    { icon: cal, title: "GreenCalendar", desc: "Lihat kalender, ada hari bersih apa aja!" },
+    { icon: cal, title: "GreenCalendar", desc: "Lihat kalender, ada hari bersih apa aja!", Path: "/cal" },
     { icon: rrr, title: "Inovate!", desc: "Inovasi apa saja? Yuk merapat!" },
     { icon: bin, title: "TrashBin", desc: "Kelola sampahmu dengan mudah!" },
-    { icon: cas, title: "VirtualTour", desc: "Lihat sekolah lain secara virtual!" },
-    { icon: mon, title: "Waste-Bank", desc: "Tabung poin dari pengelolaan sampah!" },
+    { icon: cas, title: "VirtualTour", desc: "Lihat sekolah lain secara virtual!", Path: "/virtu" },
+    { icon: mon, title: "Waste-Bank", desc: "Tabung poin dari pengelolaan sampah!", Path: "/wastb" },
   ];
   const dailyStatus = [true, false, false, true, false, true, true];
   const modelScale = windowWidth < 640 ? 1.2 : 2;
@@ -176,27 +177,31 @@ export default function Home() {
           </div>
 
           {/* Rekomendasi */}
-          <div className="mt-6 mb-20">
-            <h2 className="font-semibold mb-4 text-lg sm:text-xl">Ada Apa Aja Ya?</h2>
-            <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 items-start">
-              {items.map((item, i) => (
-                <div
-                  key={i}
-                  className="min-w-[9rem] sm:min-w-[12rem] h-48 bg-white rounded-xl flex-shrink-0 hover:bg-lime-100 transition-colors cursor-pointer p-4 flex flex-col items-center"
-                >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 mb-2">
-                    <img src={item.icon} alt={`icon ${i}`} className="w-full h-full object-contain" />
-                  </div>
-                  <h3 className="font-bold mb-1 text-center text-sm sm:text-base">{item.title}</h3>
-                  <p className="text-xs sm:text-sm mb-2 text-center">{item.desc}</p>
-                  <HoverComment comment="semua dimulai dari rasa ingin tahu akan kemajuan!">
-                    <button className="mt-auto bg-lime-500 text-white px-2 py-1 rounded text-xs sm:text-sm">
-                      klik!
-                    </button>
-                  </HoverComment>
-                </div>
-              ))}
+           <div className="mt-6 mb-20">
+      <h2 className="font-semibold mb-4 text-lg sm:text-xl">Ada Apa Aja Ya?</h2>
+      <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 items-start">
+        {items.map((item, i) => (
+          <div
+            key={i}
+            className="min-w-[9rem] sm:min-w-[12rem] h-48 bg-white rounded-xl flex-shrink-0 hover:bg-lime-100 transition-colors cursor-pointer p-4 flex flex-col items-center"
+          >
+            <div className="w-10 h-10 sm:w-12 sm:h-12 mb-2">
+              <img src={item.icon} alt={`icon ${i}`} className="w-full h-full object-contain" />
             </div>
+            <h3 className="font-bold mb-1 text-center text-sm sm:text-base">{item.title}</h3>
+            <p className="text-xs sm:text-sm mb-2 text-center">{item.desc}</p>
+            <HoverComment comment="semua dimulai dari rasa ingin tahu akan kemajuan!">
+              <button
+                className="mt-auto bg-lime-500 text-white px-2 py-1 rounded text-xs sm:text-sm"
+                onClick={() => navigate(item.Path)}
+              >
+                klik!
+              </button>
+            </HoverComment>
+          </div>
+        ))}
+      </div>
+    
 
          <div className="mt-8 text-center">
             <HoverBacklight count={8} distance={40}>
