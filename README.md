@@ -1,4 +1,5 @@
 # zerowastehero
+Trashformers is a fun and simple platform that helps schools and students turn waste problems into cool challenges. With games, teamwork, and a bit of competition, we make learning about sustainability easy—and way more exciting than just throwing trash away.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
