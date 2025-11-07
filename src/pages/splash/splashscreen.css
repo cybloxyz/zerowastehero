@@ -1,0 +1,66 @@
+.splash-container {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  z-index: 9999;
+  font-family: "Poppins", sans-serif;
+  animation: fadeInText 0.8s ease;
+}
+
+.splash-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  animation: fadeIn 1s ease forwards;
+}
+
+.splash-desc {
+  font-size: 1rem;
+  text-align: center;
+  color: #666;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.skip-btn {
+  padding: 8px 18px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.skip-btn:hover {
+  background: #333;
+}
+
+.fade-out {
+  animation: fadeOut 1s ease forwards;
+}
+
+/* ANIMATIONS */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

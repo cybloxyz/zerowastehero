@@ -1,7 +1,7 @@
 import { useState } from "react";
 import searchIcon from "../assets/searchbar.svg";
 
-export default function SearchBar({ placeholder = "Mau cari apa nih?..", onSearch }) {
+export default function SearchBar({ placeholder = "Mau cari apa nih...", onSearch }) {
   const [query, setQuery] = useState("");
 
   const handleSearch = () => {

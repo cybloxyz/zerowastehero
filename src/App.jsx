@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
 import HomeDefault from "./pages/Home";
 import HomeLoggedIn from "./pages/Homel";
 import Leaderboard from "./pages/leaderboard";
@@ -12,6 +13,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import VirtualTour from "./pages/virtu";
 import Cal from "./pages/cal";
 import Bank from "./pages/wastb";
+import SplashScreen from "./pages/splash/splashscreen"; // import splash screen
 
 // Wrapper supaya route '/' dinamis tergantung login
 function HomeRoute() {
@@ -21,45 +23,50 @@ function HomeRoute() {
 }
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true); // state splash
+
   return (
     <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomeRoute />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/register" element={<Register />} />
+      {showSplash && <SplashScreen onFinish={() => setShowSplash(false)} />} 
 
-          {/* login */}
-          <Route path="/login-school" element={<LoginSchool />} />
-          <Route path="/login-student" element={<LoginStudent />} />
+      {!showSplash && (
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomeRoute />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/register" element={<Register />} />
 
-          <Route path="/virtu" element={<VirtualTour />} />
-          <Route path="/cal" element={<Cal />} />
-          <Route path="/wastb" element={<Bank />} />
+            {/* login */}
+            <Route path="/login-school" element={<LoginSchool />} />
+            <Route path="/login-student" element={<LoginStudent />} />
 
-          {/* dashboard */}
-          <Route
-            path="/dashboard-school"
-            element={
-              <ProtectedRoute role="school">
-                <DashboardSchool />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/dashboard-student"
-            element={
-              <ProtectedRoute role="student">
-                <DashboardStudent />
-             
-              </ProtectedRoute>
-            }
-          />
+            <Route path="/virtu" element={<VirtualTour />} />
+            <Route path="/cal" element={<Cal />} />
+            <Route path="/wastb" element={<Bank />} />
 
-          {/* fallback */}
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </Router>
+            {/* dashboard */}
+            <Route
+              path="/dashboard-school"
+              element={
+                <ProtectedRoute role="school">
+                  <DashboardSchool />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashboard-student"
+              element={
+                <ProtectedRoute role="student">
+                  <DashboardStudent />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* fallback */}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Router>
+      )}
     </AuthProvider>
   );
 }

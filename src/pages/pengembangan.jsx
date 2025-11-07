@@ -41,9 +41,9 @@ export default function Home() {
 
   const items = [
     { icon: cal, title: "GreenCalendar", desc: "Lihat kalender, ada hari bersih apa aja!" },
-    { icon: rrr, title: "Inovate!", desc: "dalam pengembangan" },
+    { icon: rrr, title: "Inovate!", desc: "Inovasi apa saja? Yuk merapat!" },
     { icon: bin, title: "TrashBin", desc: "Kelola sampahmu dengan mudah!" },
-    { icon: cas, title: "VirtualTour", desc: "dalam pengembangan" },
+    { icon: cas, title: "VirtualTour", desc: "Lihat sekolah lain secara virtual!" },
     { icon: mon, title: "Waste-Bank", desc: "Tabung poin dari pengelolaan sampah!" },
   ];
 
@@ -62,20 +62,21 @@ export default function Home() {
         </HoverBacklight>
 
         <div className="flex flex-wrap gap-2 sm:gap-4">
-          <HoverComment comment="dalam pengembangan">
+          <Link to="/login-student">
             <button className="bg-white border-2 w-10 sm:w-20 h-6 sm:h-12 rounded-3xl text-xs sm:text-xl font-bold hover:scale-105 transition">
               Siswa
             </button>
-          </HoverComment>
-
+          </Link>
+          <Link to="/login-school">
             <button className="bg-white border-2 border-lime-500 w-10 sm:w-20 h-6 sm:h-12 rounded-3xl text-xs sm:text-xl font-semibold hover:scale-105 transition">
               Masuk
             </button>
-
+          </Link>
+          <Link to="/register">
             <button className="bg-lime-300 w-12 sm:w-24 h-6 sm:h-12 rounded-3xl text-xs sm:text-xl font-bold hover:scale-105 transition">
               Daftar
             </button>
-
+          </Link>
         </div>
       </nav>
 
@@ -139,7 +140,7 @@ export default function Home() {
           <HoverComment comment="semua dimulai dari mimpi, kamu bisa kontribusi dan upayakan hasil nyata!">
             <div className="bg-gradient-to-r from-sky-400 to-sky-500 rounded-xl p-4 text-white hover:scale-105 text-center">Siap Kontribusi?</div>
           </HoverComment>
-          <HoverComment comment="masih dalam pengembangan">
+          <HoverComment comment="mari jadikan dunia lebih baik, dimulai dari sekolah kamu!">
             <div className="bg-gradient-to-r from-green-400 to-green-500 rounded-xl p-4 text-white hover:scale-105 text-center">Pantau Sekolahmu!</div>
           </HoverComment>
         </div>
@@ -158,7 +159,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold mb-1 text-center text-sm sm:text-base">{item.title}</h3>
                 <p className="text-xs sm:text-sm mb-2 text-center">{item.desc}</p>
-                <HoverComment comment={item.desc}>
+                <HoverComment comment="semua dimulai dari rasa ingin tahu akan kemajuan!">
                   <button className="mt-auto bg-lime-500 text-white px-2 py-1 rounded text-xs sm:text-sm">
                     klik!
                   </button>
