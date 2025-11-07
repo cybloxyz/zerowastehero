@@ -40,11 +40,11 @@ export default function Home() {
   }, []);
 
   const items = [
-    { icon: cal, title: "GreenCalendar", desc: "Lihat kalender, ada hari bersih apa aja!" },
-    { icon: rrr, title: "Inovate!", desc: "dalam pengembangan" },
-    { icon: bin, title: "TrashBin", desc: "Kelola sampahmu dengan mudah!" },
-    { icon: cas, title: "VirtualTour", desc: "dalam pengembangan" },
-    { icon: mon, title: "Waste-Bank", desc: "Tabung poin dari pengelolaan sampah!" },
+    { icon: cal, title: "GreenCalendar", desc: "Lihat kalender, ada hari bersih apa aja!", path: "/cal" },
+    { icon: rrr, title: "Inovate!", desc: "dalam pengembangan", path: "" },
+    { icon: bin, title: "TrashBin", desc: "Kelola sampahmu dengan mudah!", path: "" },
+    { icon: cas, title: "VirtualTour", desc: "dalam pengembangan", path: "" },
+    { icon: mon, title: "Waste-Bank", desc: "Tabung poin dari pengelolaan sampah!", path: "" },
   ];
 
   const dailyStatus = [true, false, false, true, false, true, true];
@@ -159,7 +159,7 @@ export default function Home() {
                 <h3 className="font-bold mb-1 text-center text-sm sm:text-base">{item.title}</h3>
                 <p className="text-xs sm:text-sm mb-2 text-center">{item.desc}</p>
                 <HoverComment comment={item.desc}>
-                  <button className="mt-auto bg-lime-500 text-white px-2 py-1 rounded text-xs sm:text-sm">
+                  <button className="mt-auto bg-lime-500 text-white px-2 py-1 rounded text-xs sm:text-sm" onClick={() => item.path && navigate(item.path)}>
                     klik!
                   </button>
                 </HoverComment>
