@@ -33,7 +33,7 @@ export default function Home() {
   const navigate = useNavigate();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
+  useEffect(() => { 
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -56,7 +56,7 @@ export default function Home() {
       {/* Navbar */}
       <nav className="flex flex-wrap justify-between items-center px-4 sm:px-6 py-4 bg-white shadow">
         <HoverBacklight count={8} distance={40}>
-          <div className="font-bold text-lg sm:text-4xl text-lime-800 mb-2 sm:mb-0">
+          <div className="font-bold text-lg sm:text-4xl text-lime-800 mb-2 sm:mb-0 sporta">
             The Zero-Waste Hero 🌱
           </div>
         </HoverBacklight>
@@ -109,7 +109,7 @@ export default function Home() {
 
           {/* Text */}
           <div className="w-full sm:w-2/3 mt-4 sm:mt-0 sm:pl-4 flex flex-col justify-center">
-            <h2 className="text-xl sm:text-2xl font-bold mb-2 text-lime-600">Ayo Zero-Waste Heroes!</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-lime-600 sporta">Ayo Zero-Waste Heroes!</h2>
             <p className="text-base text-sm sm:text-base">
               Setiap sampah yang kamu pilah, setiap plastik yang kamu hindari, membuat dunia lebih bersih. Ayo, jadi pahlawan lingkungan sekarang!
             </p>

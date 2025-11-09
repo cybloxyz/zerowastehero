@@ -8,7 +8,7 @@ export default function SplashScreen({ onFinish }) {
     const timer = setTimeout(() => {
       setHide(true);
       onFinish();
-    }, 10000); // 3,5 detik intro
+    }, 15000); // 3,5 detik intro
 
     return () => clearTimeout(timer);
   }, []);
@@ -17,7 +17,10 @@ export default function SplashScreen({ onFinish }) {
     <div className={`splash-container ${hide ? "fade-out" : ""}`}>
       <h2 className="splash-title">✨ Terima kasih telah berkunjung! ✨</h2>
       <p className="splash-desc">
-        Website masih dalam tahap pengembangan.
+        Website ini merupakan platform edukasi berbasis gamifikasi tentang pengelolaan sampah
+        <br />
+        dan masih dalam tahap pengembangan.
+        <br />
         <br />
         full stack developer yang merupakan siswa SMA juga sedang belajar dalam pengembangan website ini
         <br />

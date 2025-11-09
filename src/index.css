@@ -33,3 +33,29 @@
   opacity: 0.8;
 }
 
+@font-face {
+  font-family: "sporta";
+  src: url("/sporta/Sporta.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "spout";
+  src: url("/sporta/Sportaoutline.ttf") format("truetype");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  font-family: sans-serif;
+}
+
+.sporta {
+  font-family: "sporta";
+}
+
+.spout {
+  font-family: "spout";
+}

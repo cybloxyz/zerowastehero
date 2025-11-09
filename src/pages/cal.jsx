@@ -1,21 +1,151 @@
-import cr from "../assets/crown.svg";
-import tr from "../assets/tr.svg";
-import HoverBacklight from "../components/burst";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import HoverBacklight from '../components/burst.jsx';
+import { useNavigate } from "react-router-dom";
+
+
+const events = [
+  { date: "02-21", title: "Hari Peduli Sampah Nasional", path: "pedulisampah" },
+  { date: "03-22", title: "Hari Air Sedunia", path: "air" },
+  { date: "04-22", title: "Hari Bumi", path: "earthday" },
+  { date: "06-05", title: "Hari Lingkungan Hidup Sedunia", path: "lingkup" },
+  { date: "09-20", title: "World Cleanup Day", path: "cleanup" },
+
+  { date: "03-29", title: "Earth Hour", path: "earthhour" }, // Sabtu terakhir Maret → default 29
+  { date: "06-08", title: "Hari Laut Sedunia", path: "laut" },
+  { date: "07-26", title: "Hari Konservasi Mangrove Sedunia", path: "konservasialam" },
+  { date: "09-16", title: "Hari Ozon Sedunia", path: "ozon" },
+  { date: "11-21", title: "Hari Pohon Sedunia", path: "pohon" },
+
+  { date: "05-22", title: "Hari Keanekaragaman Hayati", path: "keanekaragaman" },
+  { date: "10-01", title: "Hari Habitat Dunia", path: "habitat" }, // tanggal default
+  { date: "07-27", title: "Hari Sungai Nasional", path: "sungai" },
+  { date: "08-10", title: "Hari Konservasi Alam Nasional", path: "konservasialam" },
+
+  { date: "10-13", title: "Hari Pengurangan Risiko Bencana Sedunia", path: "bencana" },
+  { date: "11-15", title: "National Recycling Day", path: "recycle" },
+  { date: "12-05", title: "Hari Tanah Sedunia", path: "tanah" },
+
+  
+  { date: "10-04", title: "Hari Satwa Sedunia", path: "animalday" },
+  { date: "07-03", title: "Hari Bebas Plastik Sedunia", path: "antiplastik" },
+  { date: "11-12", title: "International Mountain Day", path: "gunung" },
+  { date: "05-10", title: "World Migratory Bird Day", path: "habitat" },
+  { date: "21-03", title: "International Day of Forests", path: "forestday" },
+
+];
+
 
 export default function Leaderboard() {
+  const navigate = useNavigate();
+  const today = new Date();
+  const [currentMonth, setCurrentMonth] = useState(today.getMonth());
+  const [currentYear, setCurrentYear] = useState(today.getFullYear());
+
+  const months = [
+    "Januari","Februari","Maret","April","Mei","Juni",
+    "Juli","Agustus","September","Oktober","November","Desember"
+  ];
+
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+  const changeMonth = (direction) => {
+    if (direction === "prev") {
+      setCurrentMonth((m) => (m === 0 ? 11 : m - 1));
+      if (currentMonth === 0) setCurrentYear((y) => y - 1);
+    } else {
+      setCurrentMonth((m) => (m === 11 ? 0 : m + 1));
+      if (currentMonth === 11) setCurrentYear((y) => y + 1);
+    }
+  };
+
+const eventForDate = (date) => {
+  const formatted = `${String(currentMonth + 1).padStart(2, "0")}-${String(
+    date
+  ).padStart(2, "0")}`;
+  return events.find((e) => e.date === formatted);
+};
+
 
   return (
-    <div className="bg-gradient-to-b from-lime-100 to-lime-300 min-h-screen flex flex-col items-center sm:py-8 py-14 px-4">
-      <HoverBacklight count={8} distance={40}>
-        <span className="sm:text-5xl text-3xl font-bold mb-4">CalenDare!</span>
-        </HoverBacklight>
-      <h1 className="text xl font-semibold mb-4 text-center">
-        Lihat kalender, ada hari bersih apa aja!
-      </h1>
+    <div className="bg-lime-200 min-h-screen w-full lg:p-14 md:p-12 sm:p-10 p-6 items">
 
-      <div className="flex items-center justify-center mt-12 animate-wiggle">
-        <img src={tr} alt="icon" className="sm:w-24 w-14 h-full object-contain"/>
+      <HoverBacklight count={8} distance={40}>
+      <h1 className="lg:text-6xl md:text-5xl sm:text-4xl text-3xl text-lime-800 font-bold text-center lg:my-8 md:my-8 sm:my-8 my-4 sporta">🎯CALENDARE!</h1>
+      </HoverBacklight>
+
+      <div className="bg-white rounded-3xl h-item w-full lg:p-12 sm:p-4 md:p-4 p-2">
+    <div className="flex flex-col items-center gap-6 w-full lg:px-6 md:px-6 sm:px-6 px-2">
+      {/* Header bulan */}
+      <div className="flex items-center justify-between w-full">
+        <button
+          className="lg:px-4 md:px-4 sm:px-4 px-3 py-2 bg-lime-400 hover:bg-lime-600 rounded-xl transition"
+          onClick={() => changeMonth("prev")}
+        >
+          ‹
+        </button>
+        <h2 className="lg:text-4xl md:text-4xl sm:text-4xl text-2xl font-bold text-lime-700 drop-shadow-sm spout">
+          {months[currentMonth]} {currentYear}
+        </h2>
+        <button
+          className="lg:px-4 md:px-4 sm:px-4 px-3 py-2 py-2 bg-lime-400 hover:bg-lime-600 rounded-3xl transition"
+          onClick={() => changeMonth("next")}
+        >
+          ›
+        </button>
+      </div>
+
+      {/* Hari */}
+      <div className="grid grid-cols-7 gap-4 w-full text-center font-semibold text-gray-700">
+        <span>Min</span><span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span>
+      </div>
+{/* Kotak tanggal */}
+<div className="grid grid-cols-7 lg:gap-2 md:gap-2 sm:gap-2 gap-1 w-full">
+  {[...Array(firstDay)].map((_, i) => (
+    <div key={`empty-${i}`} className="aspect-square"></div>
+  ))}
+
+  {[...Array(daysInMonth)].map((_, i) => {
+    const date = i + 1;
+    const event = eventForDate(date);
+
+    return event ? (
+      <button
+        key={date}
+        onClick={() => navigate(`/events/${event.path}`)}
+        className={`
+                aspect-square rounded-2xl lg:border-4 md:border-4 sm:border-2 border border-lime-100 flex flex-col justify-center items-center
+                text-xl font-semibold transition cursor-pointer
+                ${event ? "bg-lime-600 text-white shadow-lg shadow-lime-300 animate-bounce" : "bg-white"}
+                hover:scale-105 hover:shadow-xl hover:shadow-lime-300
+              `}
+      >
+        {date}
+        <p className="lg:text-[14px] lg:mt-2 lg:w-[60%] w-[90%] text-[8px] mt-1 leading-tight font-medium">
+          {event.title}
+        </p>
+      </button>
+    ) : (
+      <div
+        key={date}
+        className="
+          aspect-square rounded-2xl lg:border-4 md:border-4 sm:border-2 border border-lime-100 flex flex-col justify-center items-center 
+          text-xl font-semibold transition
+          bg-white text-gray-700 hover:scale-105 hover:shadow-xl hover:shadow-lime-300
+        "
+      >
+        {date}
+        {event && (
+                <p className="lg:text-[14px] lg:mt-2 lg:w-[50%] w-[90%] text-[8px] mt-1 leading-tight font-medium">
+                  {event.title}
+                </p>
+              )}
+      </div>
+    ); 
+  })}
+</div>
+
+      </div>
       </div>
     </div>
   );
